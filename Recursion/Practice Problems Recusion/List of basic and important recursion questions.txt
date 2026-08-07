@@ -1,0 +1,63 @@
+1. **Factorial of a Number**
+   Classic base case + recursive case structure.
+
+2. **Fibonacci Numbers**
+   Simple recurrence relation, good for identifying overlapping subproblems.
+
+3. **Sum of Digits of a Number**
+   Reduces input step by step with modulus/division.
+
+4. **Reverse a String / Palindrome Check**
+   Good for learning recursion over strings.
+
+5. **Power Function (x^n)**
+   Includes optimization via divide-and-conquer.
+
+6. **Greatest Common Divisor (Euclid’s Algorithm)**
+   Demonstrates mathematical recursion.
+
+7. **Tower of Hanoi**
+   Standard problem illustrating recursive decomposition.
+
+8. **N-Queens Problem**
+   Classic backtracking recursion.
+
+9. **Generate All Subsets (Power Set)**
+   Binary choice recursion: include/exclude.
+
+10. **Generate All Permutations of a String/Array**
+    In-place swapping recursion.
+
+11. **Binary Search (Recursive)**
+    Demonstrates recursion in divide-and-conquer search.
+
+12. **Merge Sort / Quick Sort (Recursive versions)**
+    Foundation of recursive sorting.
+
+13. **Recursive Tree Traversals (Preorder, Inorder, Postorder)**
+    Core recursion pattern in data structures.
+
+14. **Count Paths in a Grid (m x n)**
+    Illustrates recursion + combinatorics.
+
+15. **Climbing Stairs / Ways to Reach Nth Step**
+    Variation of Fibonacci recursion.
+
+16. **Subset Sum / Partition Problem (Backtracking recursion)**
+    Introduces recursion for NP problems.
+
+17. **Word Search in a Grid (DFS recursion)**
+    Demonstrates recursion with visited states.
+
+18. **Maximum Depth of Binary Tree**
+    Basic structural recursion in trees.
+
+19. **Print Numbers 1 to N / N to 1 (Recursive printing)**
+    Warm-up problem for control of call-stack order.
+
+20. **Check Balanced Parentheses (Recursion over string)**
+    Good for learning recursion + constraints.
+
+---
+
+These form the core set. Mastery of these establishes recursion fundamentals (base cases, recurrence, call stack tracing, backtracking, pruning).
