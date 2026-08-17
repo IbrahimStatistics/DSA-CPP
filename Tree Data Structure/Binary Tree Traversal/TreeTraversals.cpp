@@ -39,6 +39,26 @@ void preOrderTraversal(Node* root) {
     preOrderTraversal(root->right);
 }
 
+void inOrderTraversal(Node* root) {
+    if(root == NULL) {
+        return;
+    }
+
+    inOrderTraversal(root->left);
+    cout << root->data << " ";
+    inOrderTraversal(root->right);
+}
+
+void postOrderTraversal(Node* root) {
+    if(root == NULL) {
+        return;
+    }
+
+    postOrderTraversal(root->left);
+    postOrderTraversal(root->right);
+    cout << root->data << " ";
+}
+
 int main() {
     vector<int> preorder = {
         1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1
@@ -48,7 +68,15 @@ int main() {
 
     if (root) {
         cout << "Tree Building Successful!" << endl;
-        preOrderTraversal(root);
+
+        cout << "PreOrder Traversal: ";
+        preOrderTraversal(root); cout << endl;
+        
+        cout << "Inorderd Traversal: ";
+        inOrderTraversal(root); cout << endl;
+
+        cout << "Post Order Traversal: ";
+        postOrderTraversal(root); cout << endl;
     } else {
         cout << "Tree Building Failed!" << endl;
     }
