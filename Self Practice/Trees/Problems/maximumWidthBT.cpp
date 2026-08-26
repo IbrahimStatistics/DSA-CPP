@@ -30,26 +30,27 @@ TreeNode* buildTree(vector<int>& preorder, int& idx) {
 }
 
 int maxWidthBT(TreeNode* root) {
-    if(root == NULL) return 0;
-
+    queue<pair<TreeNode*, int>> q;
+    q.push({root, 0});
     int maxWidth = 0;
-    queue<TreeNode*> q;
-    q.push(root);
 
-    while(!q.empty()) {
-        int levelSize = q.size();
-        maxWidth = max(maxWidth, levelSize);
+    while(q.size()>0) {
+        int currLevelSize = q.size();
+        int stIdx = q.front().second;
+        int endIdx = q.back().second;
 
-        for(int i = 0; i < levelSize; i++) {
-            TreeNode* curr = q.front();
+        maxWidth = max(maxWidth, endIdx-stIdx+1);
+
+        for(int i = 0; i<currLevelSize; i++) {
+            auto curr = q.front();
             q.pop();
 
-            if(curr->left) {
-                q.push(curr->left);
+            if(curr.first->left) {
+                q.push({curr.first->left, curr.second*2+1});  // Left child
             }
 
-            if(curr->right) {
-                q.push(curr->right);
+            if(curr.first->right) {
+                q.push({curr.first->right, curr.second*2+2}); // Right child (CHANGED)
             }
         }
     }
