@@ -14,6 +14,7 @@ class Graph {
 
         for(auto neigh : l[src]) {
             if(!visited[neigh]) {
+                visited[neigh] = true;
                 dfsHelper(neigh, visited);
             }
         }
