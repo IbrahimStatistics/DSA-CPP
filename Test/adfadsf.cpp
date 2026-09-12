@@ -1,27 +1,67 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Solution {
+class Graph { 
+private:
+    int V;
+    list<int> *l;
+
 public:
-    int singleNonDuplicate(vector<int>& nums) {
-        if(nums.size() == 1 || nums.size() == 2) {
-            return nums[0];
-        }
+    Graph(int V) {
+        this->V = V;
+        l = new list<int> [V];
+    }
 
-        int st = 0;
-        int end = nums.size()-1;
+    void addEdge(int u, int v) {
+        l[u].push_back(v);
+    }
 
-        while(st <= end) {
-            int mid = st + (end-st)/2;
+    bool isCycleDirDFS(int src, vector<bool>& vis, vector<bool>& recPath) {
+        vis[src] = true;
+        recPath[src] = true;
 
-            if(nums[mid] != nums[mid+1] && nums[mid] != nums[mid-1]) {
-                return nums[mid];
-            } else if (nums[mid] == nums[mid+1]) {
-                st = mid + 1;
-            } else if (nums[mid] == nums[mid-1]) {
-                end = mid + 1;
+        for(auto v : l[src]) {
+            if(!vis[v]) {
+                if(isCycleDirDFS(v, vis, recPath)) {
+                    return true;
+                }
+            } else if(recPath[v]) {
+                return true;
             }
         }
-        return -1;
-    }   
+
+        recPath[src] = false;
+        return false;
+    }
+
+    bool dfs() {
+        vector<bool> vis(V, false);
+        vector<bool> recPath(V, false);
+        int src = 0;
+
+        for(int i = 0; i<V; i++) {
+            if(!vis[i]) {
+                if(isCycleDirDFS(i, vis, recPath)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 };
+
+int main() {
+    cout << endl;
+    
+    Graph g(5);
+    g.addEdge(1, 0);
+    g.addEdge(0, 2);
+    g.addEdge(2, 3);
+    g.addEdge(3, 0);
+    
+    cout << g.dfs();
+    
+    cout << endl;
+    return 0;
+}
