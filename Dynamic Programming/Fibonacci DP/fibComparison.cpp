@@ -23,7 +23,7 @@ long long fibDP(int n, vector<long long>& f) {
 
 int main() {
     // n = 40 is a perfect sweet spot to show the massive performance gap
-    int n = 100; 
+    int n = 45; 
     
     cout << "--- Benchmarking Fibonacci for n = " << n << " ---\n\n";
 
