@@ -9,7 +9,7 @@ int fib(int n) {
     return fib(n-1) + fib(n-2);
 }
 
-// Fibonacci DP Code
+// Fibonacci DP Code - Memoization
 int fibDP(int n, vector<int>& f) {
     if(n <= 1) return n;
 
@@ -20,12 +20,26 @@ int fibDP(int n, vector<int>& f) {
     return f[n] = fibDP(n-1, f) + fibDP(n-2, f);
 }
 
+// Fibonacci DP Code - Tabulation
+int fibDPTab(int n) {
+    vector<int> dp(n+1);
+    dp[0] = 0;
+    dp[1] = 1;
+
+    for(int i = 2; i<=n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+
+    return dp[n];
+}
+
 int main() {
     cout << endl;
-    int n = 60000;
+    int n = 6;
     vector<int> f(n+1, -1);
     
-    cout << n << "! =" << fibDP(n, f) << endl;
+    cout << n << "th fibonacci term = " << fibDP(n, f) << endl;
+    cout << n << "th fibonacci term = " << fibDPTab(n) << endl;
     
     cout << endl;
     return 0;
