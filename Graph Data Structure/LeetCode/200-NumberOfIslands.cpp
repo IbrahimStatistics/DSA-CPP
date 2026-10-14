@@ -4,7 +4,7 @@ using namespace std;
 class Solution {
 public:
     void dfs(int i, int j, vector<vector<bool>> &vis,
-             vector<vector<char>> &grid) {
+        vector<vector<char>> &grid) {
         int n = grid.size();
         int m = grid[0].size();
 
